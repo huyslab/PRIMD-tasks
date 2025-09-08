@@ -53,8 +53,8 @@ export const messages = {
     },
     screening: {
         start_message: [
-            `<p><b>Welcome to the first RELMED training session!</b></p>
-            <p>Over the next twenty minutes, you will try out the main tasks comprising the home assessments in the RELMED study.
+            `<p><b>Welcome to the first PRIMD training session!</b></p>
+            <p>Over the next twenty minutes, you will try out the main tasks comprising the home assessments in the PRIMD study.
             <p>You will start by playing a few simple trial-and-error learning games. Your goal in each game is to win as many coins as possible.</p>
             <p>The games may feel a bit fast-paced because we're interested in your quick, intuitive decisions. Since they're designed around learning from experience, making mistakes is completely expected. Over time, you'll figure out better choices and improve your performance.</p>
             `,

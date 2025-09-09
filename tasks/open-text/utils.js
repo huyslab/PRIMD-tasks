@@ -7,7 +7,7 @@
  */
 
 // Data saving function
-import { saveDataREDCap } from '/core/utils/index.js'; // or wherever this is defined
+import { saveDataREDCap } from '@utils/index.js'; // or wherever this is defined
 
 /**
  * User session class for tracking participant progress and behavior

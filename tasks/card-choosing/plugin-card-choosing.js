@@ -119,12 +119,12 @@ jsPsychCardChoosing = (function (jspsych) {
             coin_images: {
                 type: jspsych.ParameterType.OBJECT,
                 default: {
-                    0.01: "/assets/images/card-choosing/outcomes/1penny.png",
-                    1.0: "/assets/images/card-choosing/outcomes/1pound.png",
-                    0.5: "/assets/images/card-choosing/outcomes/50pence.png",
-                    "-0.01": "/assets/images/card-choosing/outcomes/1pennybroken.png",
-                    "-1": "/assets/images/card-choosing/outcomes/1poundbroken.png",
-                    "-0.5": "/assets/images/card-choosing/outcomes/50pencebroken.png"
+                    0.01: "./assets/images/card-choosing/outcomes/1penny.png",
+                    1.0: "./assets/images/card-choosing/outcomes/1pound.png",
+                    0.5: "./assets/images/card-choosing/outcomes/50pence.png",
+                    "-0.01": "./assets/images/card-choosing/outcomes/1pennybroken.png",
+                    "-1": "./assets/images/card-choosing/outcomes/1poundbroken.png",
+                    "-0.5": "./assets/images/card-choosing/outcomes/50pencebroken.png"
                 },
             },
             /** Coin image filenames */

@@ -16,7 +16,7 @@ import {
     canBeWarned, 
     updateState, 
     updateBonusState, 
-    saveDataREDCap } from "/core/utils/index.js"
+    saveDataREDCap } from "@utils/index.js"
 
 // First preload for task
 const reversal_preload = createPreloadTrial(
@@ -27,7 +27,7 @@ const reversal_preload = createPreloadTrial(
         "/reversal/1penny.png",
         "/reversal/1pound.png",
         "2_finger_keys.jpg"
-    ].map(img => `/assets/images/${img}`),
+    ].map(img => `./assets/images/${img}`),
     "reversal"
 );
 
@@ -200,7 +200,7 @@ function reversalInstructions(settings) {
         createPressBothTrial(`
             <p>You will now play the squirrel game for about ${settings.n_trials == 50 ? "three" : "five"} minutes without breaks.</p>
             <p>When you're ready, place your fingers comfortably on the <strong>left and right arrow keys</strong> as shown below. Press down <strong> both left and right arrow keys at the same time </strong> to begin.</p>
-            <img src='/assets/images/2_finger_keys.jpg' style='width:250px;'></img>`,
+            <img src='./assets/images/2_finger_keys.jpg' style='width:250px;'></img>`,
             "reversal_instruction"
         )
     ]

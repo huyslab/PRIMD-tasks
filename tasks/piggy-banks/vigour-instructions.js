@@ -1,6 +1,6 @@
 import { updatePersistentCoinContainer, observeResizing, dropCoin } from './vigour-utils.js';
 import { shakePiggy } from './utils.js';
-import { updateState } from '/core/utils/index.js';
+import { updateState } from '@utils/index.js';
 
 /**
  * Interactive instruction page that demonstrates the piggy bank shaking mechanism
@@ -134,8 +134,8 @@ const ruleInstruction = {
     
     <p>Throughout the game, you will see different piggy banks with unique appearances:</p>
     <ul>
-        <li><img src="/assets/images/piggy-banks/saturate-icon.png" style="height:1.3em; transform: translateY(0.2em)"> <span class="highlight-txt">Vividness</span> of piggy colors: Indicates how fast you need to shake it.</li>
-        <li><img src="/assets/images/piggy-banks/tail-icon.png" style="height:1.3em; transform: translateY(0.2em)"> <span class="highlight-txt">Tail length</span>: Longer piggy tails = more valuable coins.</li>
+        <li><img src="./assets/images/piggy-banks/saturate-icon.png" style="height:1.3em; transform: translateY(0.2em)"> <span class="highlight-txt">Vividness</span> of piggy colors: Indicates how fast you need to shake it.</li>
+        <li><img src="./assets/images/piggy-banks/tail-icon.png" style="height:1.3em; transform: translateY(0.2em)"> <span class="highlight-txt">Tail length</span>: Longer piggy tails = more valuable coins.</li>
     </ul>
     </div>
     `,
@@ -143,15 +143,15 @@ const ruleInstruction = {
     <p>Types of coins you can win:</p>
     <div class="instruct-coin-container">
         <div class="instruct-coin">
-            <img src="/assets/images/piggy-banks/1p-num.png" alt="1 Penny">
+            <img src="./assets/images/piggy-banks/1p-num.png" alt="1 Penny">
             <p>1 Penny</p>
         </div>
         <div class="instruct-coin">
-            <img src="/assets/images/piggy-banks/2p-num.png" alt="2 Pence">
+            <img src="./assets/images/piggy-banks/2p-num.png" alt="2 Pence">
             <p>2 Pence</p>
         </div>
         <div class="instruct-coin">
-            <img src="/assets/images/piggy-banks/5p-num.png" alt="5 Pence">
+            <img src="./assets/images/piggy-banks/5p-num.png" alt="5 Pence">
             <p>5 Pence</p>
         </div>
     </div>
@@ -174,7 +174,7 @@ const startConfirmation = {
       <p>When you're ready, place the <strong>index finger of the hand you write with</strong> comfortably on the <span class="spacebar-icon">B</span> key, as shown below.</p>
       <p>Use only this finger to press during the game.</p>
       <p>Press it once to begin.</p>
-      <img src="/assets/images/piggy-banks/vigour_key.png" style="width:250px;" alt="Key press illustration">
+      <img src="./assets/images/piggy-banks/vigour_key.png" style="width:250px;" alt="Key press illustration">
       <p>If you want to start over from the beginning, press <span class="spacebar-icon">R</span>.</p>
   </div>
     `,
@@ -227,7 +227,7 @@ function generateInstructStimulus() {
         <div id="coin-container"></div>
         <div id="piggy-container">
           <!-- Piggy Bank Image -->
-          <img id="piggy-bank" src="/assets/images/piggy-banks/piggy-bank.png" alt="Piggy Bank">
+          <img id="piggy-bank" src="./assets/images/piggy-banks/piggy-bank.png" alt="Piggy Bank">
         </div>
       </div>
 

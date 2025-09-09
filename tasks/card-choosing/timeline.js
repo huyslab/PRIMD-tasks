@@ -16,7 +16,7 @@ import {
   createPreloadTrial,
   applyWithinTaskResumptionRules, 
   getResumptionState
-} from '/core/utils/index.js';
+} from '@utils/index.js';
 
 // MAIN EXPORT FUNCTIONS
 /**
@@ -118,8 +118,8 @@ export function createPostLearningTestTimeline(settings) {
     if (pav_test_structure) {
       pav_test_structure.forEach(trial => {
         // Set pavlovian-specific paths and properties
-        trial.stimulus_left = `/assets/images/pavlovian-stims/${settings.session}/${trial.stimulus_left}`;
-        trial.stimulus_right = `/assets/images/pavlovian-stims/${settings.session}/${trial.stimulus_right}`;
+        trial.stimulus_left = `./assets/images/pavlovian-stims/${settings.session}/${trial.stimulus_left}`;
+        trial.stimulus_right = `./assets/images/pavlovian-stims/${settings.session}/${trial.stimulus_right}`;
         trial.block = "pavlovian";
         trial.feedback_left = trial.magnitude_left;
         trial.feedback_right = trial.magnitude_right;

@@ -6,7 +6,7 @@
  * their feelings, background, attitudes, and behaviors.
  */
 
-import { updateState } from "/core/utils/index.js"
+import { updateState } from "@utils/index.js"
 
 // ------------> Instruction texts <---------------
 

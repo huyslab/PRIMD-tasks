@@ -1,5 +1,5 @@
 // Import functions 
-import { postToParent, saveDataREDCap, updateBonusState, updateState, showTemporaryWarning, kick_out, fullscreen_prompt } from '/core/utils/index.js';
+import { postToParent, saveDataREDCap, updateBonusState, updateState, showTemporaryWarning, kick_out, fullscreen_prompt } from '@utils/index.js';
 import { shakePiggy, updatePiggyTails} from "./utils.js";
 
 // Trial sequence for vigour task - each trial specifies piggy properties and duration
@@ -22,7 +22,7 @@ let trialState = {
 const VIGOUR_PRELOAD_IMAGES = [
         "1p-num.png", "2p-num.png", "5p-num.png", "10p-num.png", "piggy-bank.png", 
         "ooc_2p.png", "piggy-tail2.png", "saturate-icon.png", "tail-icon.png"
-      ].map(s => "/assets/images/piggy-banks/" + s);
+      ].map(s => "./assets/images/piggy-banks/" + s);
 
 /**
  * Creates and animates a falling coin when user earns a reward
@@ -48,7 +48,7 @@ function dropCoin(magnitude, persist = false) {
 function createCoin(magnitude) {
   const coin = document.createElement('img');
   coin.className = 'vigour_coin';
-  coin.src = magnitude === 0 ? '/assets/images/piggy-banks/ooc_2p.png' : `/assets/images/piggy-banks/${magnitude}p-num.png`;
+  coin.src = magnitude === 0 ? './assets/images/piggy-banks/ooc_2p.png' : `./assets/images/piggy-banks/${magnitude}p-num.png`;
   coin.alt = `Coin of value ${magnitude}`;
   return coin;
 }
@@ -154,7 +154,7 @@ function generateTrialStimulus(magnitude, ratio) {
         <div id="coin-container"></div>
         <div id="piggy-container">
           <!-- Piggy Bank Image -->
-          <img id="piggy-bank" src="/assets/images/piggy-banks/piggy-bank.png" alt="Piggy Bank" style="${piggy_style}">
+          <img id="piggy-bank" src="./assets/images/piggy-banks/piggy-bank.png" alt="Piggy Bank" style="${piggy_style}">
         </div>
       </div>
     </div>

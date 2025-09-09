@@ -9,11 +9,11 @@ import {
   updateState,
   isValidNumber,
   countOccurrences
-} from '/core/utils/index.js'; // Adjust path as needed
+} from '@utils/index.js'; // Adjust path as needed
 
 
 // CONSTANTS
-const STIMULI_PATH = '/assets/images/card-choosing/stimuli/';
+const STIMULI_PATH = './assets/images/card-choosing/stimuli/';
 
 const preloadAssets = (settings) => {
             // Base coin images
@@ -46,7 +46,7 @@ const preloadAssets = (settings) => {
             }
 
             // Prefix all with assets/images/
-            return images.map(s => `/assets/images/${s}`);
+            return images.map(s => `./assets/images/${s}`);
 };
 
 // UTILITY FUNCTIONS
@@ -63,7 +63,7 @@ function getPavlovianImages(settings) {
         "-1": "PIT6.png",
         "-0.5": "PIT5.png"
     };
-    PIT_imgs = Object.fromEntries(Object.entries(PIT_imgs).map(([k, v]) => [k, "/assets/images/pavlovian-stims/" + settings.session + "/" + v]));
+    PIT_imgs = Object.fromEntries(Object.entries(PIT_imgs).map(([k, v]) => [k, "./assets/images/pavlovian-stims/" + settings.session + "/" + v]));
     return PIT_imgs;
 }
 
@@ -82,8 +82,8 @@ function adjustStimuliPaths(structure, folder) {
     // Adjust stimuli paths otherwise
     structure.forEach(block => {
         block.forEach(trial => {
-            trial.stimulus_left = `/assets/images/${folder}/${trial.stimulus_left}`;
-            trial.stimulus_right = `/assets/images/${folder}/${trial.stimulus_right}`;
+            trial.stimulus_left = `./assets/images/${folder}/${trial.stimulus_left}`;
+            trial.stimulus_right = `./assets/images/${folder}/${trial.stimulus_right}`;
         });
     });
 }
@@ -513,7 +513,7 @@ function buildCardChoosingTask(structure, insert_msg = true, settings = {task_na
 
         // Extract unique images for preloading
         let preload_images = structure[i].flatMap(item => [item.stimulus_right, item.stimulus_left]);
-        preload_images = [...new Set(preload_images)].map(value => `/assets/images/card-choosing/stimuli/${value}`);
+        preload_images = [...new Set(preload_images)].map(value => `./assets/images/card-choosing/stimuli/${value}`);
 
         // Extract block properties
         const valence = structure[i][0]["valence"];

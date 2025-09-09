@@ -7,7 +7,7 @@ import {
   PREDICT_SEQUENCE_SCREENING 
 } from "./configuration.js"
 
-import { createPreloadTrial, kick_out, fullscreen_prompt, noChoiceWarning, updateState, saveDataREDCap, canBeWarned, updateBonusState } from "/core/utils/index.js"
+import { createPreloadTrial, kick_out, fullscreen_prompt, noChoiceWarning, updateState, saveDataREDCap, canBeWarned, updateBonusState } from "@utils/index.js"
 
 /**
  * Creates preload trial for control task assets
@@ -32,7 +32,7 @@ export const controlPreload = (settings) => {
       "icon-reward.png",
       "icon-predict.png",
       "icon-explore.png"
-    ].map(s => "/assets/images/control/" + s)),
+    ].map(s => "./assets/images/control/" + s)),
     // Session-specific island images with different reward types
     ...([
       "simple_island_i1.png", //wk0: banana
@@ -43,7 +43,7 @@ export const controlPreload = (settings) => {
       "island_icon_i2.png",
       "island_icon_i3.png",
       "island_icon_i4.png"
-    ].map(s => "/assets/images/control/session-specific/" + settings.session + "/" + s)),
+    ].map(s => "./assets/images/control/session-specific/" + settings.session + "/" + s)),
   ];
 
   return createPreloadTrial(
@@ -143,7 +143,7 @@ export function createCoreControlTimeline(settings) {
             }
           },
           explore_effort: 3000,
-          island_path: `/assets/images/control/session-specific/${settings.session}`,
+          island_path: `./assets/images/control/session-specific/${settings.session}`,
           base_rule: controlConfig(settings).baseRule,
           post_trial_gap: 0,
           save_timeline_variables: true,
@@ -184,7 +184,7 @@ export function createCoreControlTimeline(settings) {
             base_rule: controlConfig(settings).baseRule,
             control_rule: controlConfig(settings).controlRule,
             effort_threshold: controlConfig(settings).effort_threshold,
-            island_path: `/assets/images/control/session-specific/${settings.session}`,
+            island_path: `./assets/images/control/session-specific/${settings.session}`,
             scale: controlConfig(settings).scale,
             post_trial_gap: 0
           }],
@@ -195,7 +195,7 @@ export function createCoreControlTimeline(settings) {
         },
         noChoiceWarning("response", 
           `<main class="main-stage">
-            <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+            <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
           </main>`,
           settings
         )
@@ -238,7 +238,7 @@ export function createCoreControlTimeline(settings) {
           post_trial_gap: 0,
           save_timeline_variables: true,
           control_rule: controlConfig(settings).controlRule,
-          island_path: `/assets/images/control/session-specific/${settings.session}`,
+          island_path: `./assets/images/control/session-specific/${settings.session}`,
           on_start: function (trial) {
             // Add extra time if coming from feedback
             const last_trialphase = jsPsych.data.getLastTrialData().values()[0].trialphase;
@@ -293,7 +293,7 @@ export function createCoreControlTimeline(settings) {
         current: jsPsych.timelineVariable('current'),
         reward_amount: jsPsych.timelineVariable('reward_amount'),
         base_rule: controlConfig(settings).baseRule,
-        island_path: `/assets/images/control/session-specific/${settings.session}`,
+        island_path: `./assets/images/control/session-specific/${settings.session}`,
         simulation_options: {
           data: {rt: 1100}
         }
@@ -313,7 +313,7 @@ export function createCoreControlTimeline(settings) {
       control_rule: controlConfig(settings).controlRule,
       effort_threshold: controlConfig(settings).effort_threshold,
       scale: controlConfig(settings).scale,
-      island_path: `/assets/images/control/session-specific/${settings.session}`,
+      island_path: `./assets/images/control/session-specific/${settings.session}`,
       reward_decision: () => {
         if (canBeWarned(settings, 1)) {
             return settings.default_response_deadline
@@ -350,7 +350,7 @@ export function createCoreControlTimeline(settings) {
     timelineItems.push(
       noChoiceWarning("response",
         `<main class="main-stage">
-          <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+          <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
         </main>`,
         settings
       )
@@ -362,7 +362,7 @@ export function createCoreControlTimeline(settings) {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <main class="main-stage">
-              <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+              <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
         </main>
       `,
       trial_duration: 400,
@@ -395,7 +395,7 @@ export function createCoreControlTimeline(settings) {
       // Create table showing which ship belongs to which island
       let html = `
         <main class="main-stage">
-          <img class="background" src="/assets/images/control/ocean_above.png" alt="Background"/>
+          <img class="background" src="./assets/images/control/ocean_above.png" alt="Background"/>
           <div class="instruction-dialog" style="bottom:unset;">
             <div class="instruction-content" style="font-size: 24px; text-align: center;">
               <h3>Well done!</h3>
@@ -411,13 +411,13 @@ export function createCoreControlTimeline(settings) {
           html += `
             <tr>
               <td style="text-align: right; vertical-align: middle;">
-                <img src="/assets/images/control/simple_ship_${color}.png" alt="${color} ship" style="height: 80px;">
+                <img src="./assets/images/control/simple_ship_${color}.png" alt="${color} ship" style="height: 80px;">
               </td>
               <td style="text-align: center; vertical-align: middle; padding: 0 15px;">
                 <div style="font-size: 32px;">→</div>
               </td>
               <td style="text-align: left; vertical-align: middle;">
-                <img src="/assets/images/control/Control_stims/${settings.session}/island_icon_${homebase}.png" alt="Island ${homebase}" style="height: 100px;">
+                <img src="./assets/images/control/Control_stims/${settings.session}/island_icon_${homebase}.png" alt="Island ${homebase}" style="height: 100px;">
               </td>
             </tr>`;
         }

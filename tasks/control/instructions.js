@@ -1,5 +1,5 @@
 import { controlConfig } from "./configuration.js";
-import { createPressBothTrial, updateState } from "/core/utils/index.js"
+import { createPressBothTrial, updateState } from "@utils/index.js"
 
 /**
  * Creates ocean current visual elements based on strength level and rule matching
@@ -177,7 +177,7 @@ function setupFuelTrial(config) {
      */
     function createFuelIcon(container) {
         const fuelIcon = document.createElement('img');
-        fuelIcon.src = '/assets/images/control/fuel.png';
+        fuelIcon.src = './assets/images/control/fuel.png';
         fuelIcon.className = 'fuel-icon fuel-animation';
         container.appendChild(fuelIcon);
         fuelIcon.addEventListener('animationend', () => {
@@ -293,9 +293,9 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 <section class="scene">
-                <img class="island-far" src="/assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
+                <img class="island-far" src="./assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
                 <div class="overlap-group">
                     <div class="choice-left">
                         <div class="fuel-container-left" style="visibility: hidden;">
@@ -303,18 +303,18 @@ export function createControlInstructionsTimeline(settings) {
                                 <div class="fuel-indicator-bar"></div>
                             </div>
                         </div>
-                        <img class="ship-left" src="/assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
-                        <img class="arrow-left" style="visibility: hidden;" src="/assets/images/control/left.png" alt="Left arrow" />
+                        <img class="ship-left" src="./assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
+                        <img class="arrow-left" style="visibility: hidden;" src="./assets/images/control/left.png" alt="Left arrow" />
                     </div>
-                    <img class="island-near" src="/assets/images/control/simple_island.png" alt="Nearer island" />
+                    <img class="island-near" src="./assets/images/control/simple_island.png" alt="Nearer island" />
                     <div class="choice-right">
                         <div class="fuel-container-right">
                             <div class="fuel-indicator-container">
                                 <div class="fuel-indicator-bar"></div>
                             </div>
                         </div>
-                        <img class="ship-right" src="/assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
-                        <img class="arrow-right" style="visibility: hidden;" src="/assets/images/control/left.png" alt="right arrow" />
+                        <img class="ship-right" src="./assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
+                        <img class="arrow-right" style="visibility: hidden;" src="./assets/images/control/left.png" alt="right arrow" />
                     </div>
                 </div>
                 ${createOceanCurrents(2)}
@@ -332,9 +332,9 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 <section class="scene">
-                <img class="island-far" src="/assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
+                <img class="island-far" src="./assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
                 <div class="overlap-group">
                     <div class="choice-left">
                         <div class="fuel-container-left" style="visibility: hidden;">
@@ -342,18 +342,18 @@ export function createControlInstructionsTimeline(settings) {
                                 <div class="fuel-indicator-bar"></div>
                             </div>
                         </div>
-                        <img class="ship-left" src="/assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
-                        <img class="arrow-left" style="visibility: hidden;" src="/assets/images/control/left.png" alt="Left arrow" />
+                        <img class="ship-left" src="./assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
+                        <img class="arrow-left" style="visibility: hidden;" src="./assets/images/control/left.png" alt="Left arrow" />
                     </div>
-                    <img class="island-near" src="/assets/images/control/simple_island.png" alt="Nearer island" />
+                    <img class="island-near" src="./assets/images/control/simple_island.png" alt="Nearer island" />
                     <div class="choice-right">
                         <div class="fuel-container-right">
                             <div class="fuel-indicator-container">
                                 <div class="fuel-indicator-bar"></div>
                             </div>
                         </div>
-                        <img class="ship-right" src="/assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
-                        <img class="arrow-right" style="visibility: hidden;" src="/assets/images/control/left.png" alt="right arrow" />
+                        <img class="ship-right" src="./assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
+                        <img class="arrow-right" style="visibility: hidden;" src="./assets/images/control/left.png" alt="right arrow" />
                     </div>
                 </div>
                 ${createOceanCurrents(2)}
@@ -371,9 +371,9 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 <section class="scene">
-                <img class="island-far" src="/assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
+                <img class="island-far" src="./assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
                 <div class="overlap-group">
                     <div class="choice-left">
                         <div class="fuel-container-left" style="visibility: hidden;">
@@ -381,18 +381,18 @@ export function createControlInstructionsTimeline(settings) {
                                 <div class="fuel-indicator-bar"></div>
                             </div>
                         </div>
-                        <img class="ship-left" src="/assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
-                        <img class="arrow-left" style="visibility: hidden;" src="/assets/images/control/left.png" alt="Left arrow" />
+                        <img class="ship-left" src="./assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
+                        <img class="arrow-left" style="visibility: hidden;" src="./assets/images/control/left.png" alt="Left arrow" />
                     </div>
-                    <img class="island-near" src="/assets/images/control/simple_island.png" alt="Nearer island" />
+                    <img class="island-near" src="./assets/images/control/simple_island.png" alt="Nearer island" />
                     <div class="choice-right">
                         <div class="fuel-container-right">
                             <div class="fuel-indicator-container">
                                 <div class="fuel-indicator-bar"></div>
                             </div>
                         </div>
-                        <img class="ship-right" src="/assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
-                        <img class="arrow-right" style="visibility: hidden;" src="/assets/images/control/left.png" alt="right arrow" />
+                        <img class="ship-right" src="./assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
+                        <img class="arrow-right" style="visibility: hidden;" src="./assets/images/control/left.png" alt="right arrow" />
                     </div>
                 </div>
                 ${createOceanCurrents(2)}
@@ -410,9 +410,9 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 <section class="scene">
-                <img class="island-far" src="/assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
+                <img class="island-far" src="./assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
                 <div class="overlap-group">
                     <div class="choice-left">
                         <div class="fuel-container-left">
@@ -420,10 +420,10 @@ export function createControlInstructionsTimeline(settings) {
                             <div class="fuel-indicator-bar"></div>
                         </div>
                         </div>
-                        <img class="ship-left" src="/assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
-                        <img class="arrow-left" src="/assets/images/control/left.png" alt="left arrow" />
+                        <img class="ship-left" src="./assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
+                        <img class="arrow-left" src="./assets/images/control/left.png" alt="left arrow" />
                     </div>
-                    <img class="island-near" src="/assets/images/control/simple_island.png" alt="Nearer island" />
+                    <img class="island-near" src="./assets/images/control/simple_island.png" alt="Nearer island" />
                     <div class="choice-right">
                         <div class="selection-indicator">
                             <div class="selection-label">Press ➡️ to select</div>
@@ -434,8 +434,8 @@ export function createControlInstructionsTimeline(settings) {
                             <div class="fuel-indicator-bar"></div>
                         </div>
                         </div>
-                        <img class="ship-right" src="/assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
-                        <img class="arrow-right" src="/assets/images/control/left.png" alt="right arrow" />
+                        <img class="ship-right" src="./assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
+                        <img class="arrow-right" src="./assets/images/control/left.png" alt="right arrow" />
                     </div>
                 </div>
                 ${createOceanCurrents(2)}
@@ -452,15 +452,15 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 <section class="scene">
                     <div class="overlap-group" style="justify-content: space-between;">
                         <div class="choice-left">
-                            <img class="ship-left" src="/assets/images/control/simple_ship_${rightShip}.png" alt="Ship" style="opacity: 0;" />
+                            <img class="ship-left" src="./assets/images/control/simple_ship_${rightShip}.png" alt="Ship" style="opacity: 0;" />
                         </div>
-                        <img class="island-near" style="visibility: hidden;" src="/assets/images/control/simple_island.png" alt="Hidden island" />
+                        <img class="island-near" style="visibility: hidden;" src="./assets/images/control/simple_island.png" alt="Hidden island" />
                         <div class="choice-right">
-                            <img class="island-near" src="/assets/images/control/session-specific/${settings.session}/simple_island_${homebaseIsland}.png" alt="Destination island" style="top: -10%;" />
+                            <img class="island-near" src="./assets/images/control/session-specific/${settings.session}/simple_island_${homebaseIsland}.png" alt="Destination island" style="top: -10%;" />
                         </div>
                     </div>
                 </section>
@@ -476,9 +476,9 @@ export function createControlInstructionsTimeline(settings) {
             {
                 content: `
                 <div class="instruction-stage">
-                    <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                    <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                     <section class="scene">
-                    <img class="island-far" src="/assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
+                    <img class="island-far" src="./assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
                     <div class="overlap-group">
                         <div class="choice-left">
                             <div class="fuel-container-left" style="visibility: hidden;">
@@ -486,10 +486,10 @@ export function createControlInstructionsTimeline(settings) {
                                     <div class="fuel-indicator-bar"></div>
                                 </div>
                             </div>
-                            <img class="ship-left" src="/assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
-                            <img class="arrow-left" src="/assets/images/control/left.png" alt="Left arrow" />
+                            <img class="ship-left" src="./assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
+                            <img class="arrow-left" src="./assets/images/control/left.png" alt="Left arrow" />
                         </div>
-                        <img class="island-near" src="/assets/images/control/simple_island.png" alt="Nearer island" />
+                        <img class="island-near" src="./assets/images/control/simple_island.png" alt="Nearer island" />
                         <div class="choice-right">
                             <div class="selection-indicator">
                                 <div class="selection-label">Press ➡️ to select</div>
@@ -500,8 +500,8 @@ export function createControlInstructionsTimeline(settings) {
                                     <div class="fuel-indicator-bar"></div>
                                 </div>
                             </div>
-                            <img class="ship-right" src="/assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
-                            <img class="arrow-right" src="/assets/images/control/left.png" alt="right arrow" />
+                            <img class="ship-right" src="./assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
+                            <img class="arrow-right" src="./assets/images/control/left.png" alt="right arrow" />
                         </div>
                     </div>
                     ${createOceanCurrents(2)}
@@ -518,10 +518,10 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 <section class="scene">
-                    <img class="island-far" src="/assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
-                    <img class="feedback-ship" src="/assets/images/control/simple_ship_${rightShip}.png" alt="Ship" style="opacity: 0;" />
+                    <img class="island-far" src="./assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
+                    <img class="feedback-ship" src="./assets/images/control/simple_ship_${rightShip}.png" alt="Ship" style="opacity: 0;" />
                 ${createOceanCurrents(2)}
                 </section>
                 ${createInstructionDialog(`
@@ -537,7 +537,7 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 ${createOceanCurrents(3)}
                 <div class="current-indicator">
                     <div class="label"><strong>Strong current</strong>:<br> A lot of fuel needed</div>
@@ -555,7 +555,7 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 ${createOceanCurrents(2)}
                 <div class="current-indicator">
                     <div class="label"><strong>Medium current</strong>:<br> Moderate fuel needed</div>
@@ -572,7 +572,7 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 ${createOceanCurrents(1)}
                 <div class="current-indicator">
                     <div class="label"><strong>Weak current</strong>:<br> Only a little fuel needed</div>
@@ -590,9 +590,9 @@ export function createControlInstructionsTimeline(settings) {
         {
             content: `
             <div class="instruction-stage">
-                <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                 <section class="scene">
-                <img class="island-far" src="/assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
+                <img class="island-far" src="./assets/images/control/session-specific/${settings.session}/simple_island_${downstreamIsland}.png" alt="Farther island" />
                 <div class="overlap-group">
                     <div class="choice-left">
                         <div class="fuel-container-left" style="visibility: hidden;">
@@ -600,18 +600,18 @@ export function createControlInstructionsTimeline(settings) {
                                 <div class="fuel-indicator-bar"></div>
                             </div>
                         </div>
-                        <img class="ship-left" src="/assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
-                        <img class="arrow-left" src="/assets/images/control/left.png" alt="Left arrow" />
+                        <img class="ship-left" src="./assets/images/control/simple_ship_${leftShip}.png" alt="Left ship" />
+                        <img class="arrow-left" src="./assets/images/control/left.png" alt="Left arrow" />
                     </div>
-                    <img class="island-near" src="/assets/images/control/simple_island.png" alt="Nearer island" />
+                    <img class="island-near" src="./assets/images/control/simple_island.png" alt="Nearer island" />
                     <div class="choice-right">
                         <div class="fuel-container-right">
                             <div class="fuel-indicator-container">
                                 <div class="fuel-indicator-bar"></div>
                             </div>
                         </div>
-                        <img class="ship-right" src="/assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
-                        <img class="arrow-right" src="/assets/images/control/left.png" alt="right arrow" />
+                        <img class="ship-right" src="./assets/images/control/simple_ship_${rightShip}.png" alt="Right ship" />
+                        <img class="arrow-right" src="./assets/images/control/left.png" alt="right arrow" />
                     </div>
                 </div>
                 ${createOceanCurrents(2)}
@@ -783,7 +783,7 @@ export function createControlInstructionsTimeline(settings) {
         pages: [
                 `
                 <div class="instruction-stage">
-                    <img class="background" src="/assets/images/control/ocean.png" alt="Background"/>
+                    <img class="background" src="./assets/images/control/ocean.png" alt="Background"/>
                     <div class="instruction-dialog" style="bottom:40%; min-width: 600px;">
                         <div class="instruction-content" style="font-size: 1.2em; text-align: center;">
                             <p>😊 Well done! You've completed the instructions and are ready to start.</p>
@@ -1062,7 +1062,7 @@ export function createControlInstructionsTimeline(settings) {
             `<p><strong>Great! You're now ready to begin the real game.</strong></p>
             <p>You'll play multiple rounds, which typically takes about <strong>${settings.session === "screening" ? 4 : 14} minutes</strong> to complete.</p>
             <p>When you're ready, place your fingers comfortably on the <strong>left and right arrow keys</strong> as shown below. Press down <strong> both left and right arrow keys at the same time </strong> to begin.</p>
-            <img src='/assets/images/2_finger_keys.jpg' style='width:250px;'></img>`,
+            <img src='./assets/images/2_finger_keys.jpg' style='width:250px;'></img>`,
             "control_instruction_end"
         )
     ];

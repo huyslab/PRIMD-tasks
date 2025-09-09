@@ -50,12 +50,12 @@ var jsPsychRewardPrompt = (function (jspsych) {
       // Image paths
       general_image_path: {
         type: jspsych.ParameterType.STRING,
-        default: "/assets/images/control/",
+        default: "./assets/images/control/",
         description: "Base path for control images"
       },
       island_path: {
         type: jspsych.ParameterType.STRING,
-        default: "/assets/images/control/session-specific/wk0",
+        default: "./assets/images/control/session-specific/wk0",
         description: "Path for island images"
       }
 

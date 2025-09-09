@@ -12,7 +12,7 @@
  * The messages support HTML formatting and can include optional fields passed on to the jsPsych instructions trial object.
  */
 
-import { endExperiment } from '/core/utils/index.js';
+import { endExperiment } from '@utils/index.js';
 
 const formatted_warning_msg = `
     <div id='vigour-warning-temp' style="

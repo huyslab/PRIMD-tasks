@@ -4,7 +4,7 @@ import {
     updateState,
     createPressBothTrial,
     shuffleArray
-} from '../../core/utils/index.js';
+} from '@utils/index.js';
 import { 
     buildCardChoosingTask,
     getPavlovianImages 
@@ -55,18 +55,18 @@ function preparePILTInstructions(settings) {
                 You have ${window.context === "relmed" ? "four" : "three"} seconds to flip one of the two cards.</p>
                 <p>This will reveal the coin you collect: either 1 pound, 50 pence, or 1 penny.</p>
                 <div style='display: grid;'><table style='width: 200px; grid-column: 2;'><tr>
-                <td><img src='/assets/images/card-choosing/outcomes/1pound.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='/assets/images/card-choosing/outcomes/50pence.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='/assets/images/card-choosing/outcomes/1penny.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>`,
+                <td><img src='./assets/images/card-choosing/outcomes/1pound.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/50pence.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/1penny.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>`,
         ];
 
         // Add broken coin instructions for non-screening sessions
         if (settings.session !== "screening"){
             pages.push(`<p>When you flip a card, you might see broken coins like these:</p>\
                 <div style='display: grid;'><table style='width: 200px; grid-column: 2;'><tr>
-                <td><img src='/assets/images/card-choosing/outcomes/1poundbroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='/assets/images/card-choosing/outcomes/50pencebroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
-                <td><img src='/assets/images/card-choosing/outcomes/1pennybroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>
+                <td><img src='./assets/images/card-choosing/outcomes/1poundbroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/50pencebroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td>
+                <td><img src='./assets/images/card-choosing/outcomes/1pennybroken.png' style='width:${small_coin_size}px; height:${small_coin_size}px;'></td></tr></table></div>
                 <p>This means you lose that amount of game coins.</p>`);
             pages.push(`<p>Sometimes, losing coins cannot be avoided. Your goal then is to lose as little money as possible.</p>
                 <p>To cover these losses, you will start the game with £100 in game coins.</p>`)
@@ -87,7 +87,7 @@ function preparePILTInstructions(settings) {
                 `<p>You choose a card by pressing the left or the right arrow keys.</p>
                         <p>Let's try it out now! Flip a card on the next screen.</p>
                         <p>When you're ready, place your fingers comfortably on the <strong>left and right arrow keys</strong> as shown below. Press down <strong> both left and right arrow keys at the same time </strong> to begin.</p>
-                        <img src='/assets/images/2_finger_keys.jpg' style='width:250px;'></img>
+                        <img src='./assets/images/2_finger_keys.jpg' style='width:250px;'></img>
                         `,
                 "pilt_instruction"
             ),
@@ -142,7 +142,7 @@ function preparePILTInstructions(settings) {
             On the next screen, choose cards to collect as much money as you can.</p>
             <p>One of the picture cards has mostly £1 coins behind it, while the other has mostly ${settings.session === "screening" ? "50 pence coins" : "broken £1 coins"} behind it.</p>
             <p>When you're ready, place your fingers comfortably on the <strong>left and right arrow keys</strong> as shown below. Press down <strong> both left and right arrow keys at the same time </strong> to begin.</p>
-            <img src='/assets/images/2_finger_keys.jpg' style='width:250px;'></img>
+            <img src='./assets/images/2_finger_keys.jpg' style='width:250px;'></img>
         `,
         "pilt_instruction"
     )
@@ -350,7 +350,7 @@ function preparePILTInstructions(settings) {
                 <p>You will now complete ${settings.session === "screening" ? "another round" : "15 rounds"} of the card choosing game, taking ${settings.session === "screening" ? "a couple of minutes" : "10-15 minutes"} on average to complete.</p>
                 ${settings.session !== "screening" ? "<p>You will be able to take a short break between rounds, if you feel you need it.</p>" : ""}
                 <p>When you're ready, place your fingers comfortably on the <strong>left and right arrow keys</strong> as shown below. Press down <strong> both left and right arrow keys at the same time </strong> to begin.</p>
-                <img src='/assets/images/2_finger_keys.jpg' style='width:250px;'></img>`,
+                <img src='./assets/images/2_finger_keys.jpg' style='width:250px;'></img>`,
                 "pilt_instruction"
             )
         ]
@@ -426,7 +426,7 @@ const LTM_instructions = [
         stimulus: `<p>Let's get started!</p>
         <p>You will play one round with no breaks, lasting about 8 minutes.</p>
         <p>When you are ready to start playing, place your fingers on the left, right, and up arrow keys as shown below, and press the up arrow key.</p>
-        <img src='/assets/images/3_finger_keys.jpg' style='width:250px;'></img>`,
+        <img src='./assets/images/3_finger_keys.jpg' style='width:250px;'></img>`,
         choices: ['arrowup'],
         data: {trialphase: "LTM_instructions"},
         on_finish: () => {
@@ -462,7 +462,7 @@ const WM_instructions = [
         stimulus: `<p>Let's get started!</p>
         <p>You will play one round with no breaks, lasting about 8 minutes.</p>
         <p>When you are ready to start playing, place your fingers on the left, right, and up arrow keys as shown below, and press the up arrow key.</p>
-        <img src='/assets/images/3_finger_keys.jpg' style='width:250px;'></img>`,
+        <img src='./assets/images/3_finger_keys.jpg' style='width:250px;'></img>`,
         choices: ['arrowup'],
         data: {trialphase: "WM_instructions"},
         on_finish: () => {

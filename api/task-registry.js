@@ -1,15 +1,15 @@
 // api/task-registry.js
 // This module defines a registry for tasks in the API, allowing for easy management and execution of tasks.
 
-import { computeRelativeCardChoosingBonus, createCardChoosingTimeline, createPostLearningTestTimeline } from '/tasks/card-choosing/index.js';
-import { createDelayDiscountingTimeline } from '/tasks/delay-discounting/index.js';
-import { createMaxPressTimeline } from '/tasks/max-press-test/task.js';
-import { createVigourTimeline, computeRelativePiggyTasksBonus, createPITTimeline, createVigourTestTimeline } from '/tasks/piggy-banks/index.js';
-import { createPavlovianLotteryTimeline } from '/tasks/pavlovian-lottery/task.js';
-import { createControlTimeline, computeRelativeControlBonus } from '/tasks/control/index.js';
-import { createOpenTextTimeline } from '/tasks/open-text/index.js';
-import { createReversalTimeline, computeRelativeReversalBonus } from '/tasks/reversal/index.js';
-import { createAcceptabilityTimeline } from '/tasks/acceptability-judgment/index.js';
+import { computeRelativeCardChoosingBonus, createCardChoosingTimeline, createPostLearningTestTimeline } from '@tasks/card-choosing/index.js';
+import { createDelayDiscountingTimeline } from '@tasks/delay-discounting/index.js';
+import { createMaxPressTimeline } from '@tasks/max-press-test/task.js';
+import { createVigourTimeline, computeRelativePiggyTasksBonus, createPITTimeline, createVigourTestTimeline } from '@tasks/piggy-banks/index.js';
+import { createPavlovianLotteryTimeline } from '@tasks/pavlovian-lottery/task.js';
+import { createControlTimeline, computeRelativeControlBonus } from '@tasks/control/index.js';
+import { createOpenTextTimeline } from '@tasks/open-text/index.js';
+import { createReversalTimeline, computeRelativeReversalBonus } from '@tasks/reversal/index.js';
+import { createAcceptabilityTimeline } from '@tasks/acceptability-judgment/index.js';
 
 export const TaskRegistry = {
   PILT: {
@@ -27,15 +27,15 @@ export const TaskRegistry = {
         session: 'wk0'
     },
     sequences: {
-        screening: '/tasks/card-choosing/sequences/PILT/trial1_screening.js',
-        wk0: '/tasks/card-choosing/sequences/PILT/trial1_wk0.js',
-        wk2: '/tasks/card-choosing/sequences/PILT/trial1_wk2.js',
-        wk4: '/tasks/card-choosing/sequences/PILT/trial1_wk4.js',
-        wk24: '/tasks/card-choosing/sequences/PILT/trial1_wk24.js',
-        wk28: '/tasks/card-choosing/sequences/PILT/trial1_wk28.js',
+        screening: '@tasks/card-choosing/sequences/PILT/trial1_screening.js',
+        wk0: '@tasks/card-choosing/sequences/PILT/trial1_wk0.js',
+        wk2: '@tasks/card-choosing/sequences/PILT/trial1_wk2.js',
+        wk4: '@tasks/card-choosing/sequences/PILT/trial1_wk4.js',
+        wk24: '@tasks/card-choosing/sequences/PILT/trial1_wk24.js',
+        wk28: '@tasks/card-choosing/sequences/PILT/trial1_wk28.js',
     },
     requirements: {
-      css: ['/tasks/card-choosing/styles.css'],
+      css: ['@tasks/card-choosing/styles.css'],
     },
     resumptionRules: {
         enabled: true,
@@ -71,14 +71,14 @@ export const TaskRegistry = {
         session: 'wk0'
     },
     sequences: {
-        wk0: '/tasks/card-choosing/sequences/WM/trial1_wk0.js',
-        wk2: '/tasks/card-choosing/sequences/WM/trial1_wk2.js',
-        wk4: '/tasks/card-choosing/sequences/WM/trial1_wk4.js',
-        wk24: '/tasks/card-choosing/sequences/WM/trial1_wk24.js',
-        wk28: '/tasks/card-choosing/sequences/WM/trial1_wk28.js',
+        wk0: '@tasks/card-choosing/sequences/WM/trial1_wk0.js',
+        wk2: '@tasks/card-choosing/sequences/WM/trial1_wk2.js',
+        wk4: '@tasks/card-choosing/sequences/WM/trial1_wk4.js',
+        wk24: '@tasks/card-choosing/sequences/WM/trial1_wk24.js',
+        wk28: '@tasks/card-choosing/sequences/WM/trial1_wk28.js',
     },
     requirements: {
-      css: ['/tasks/card-choosing/styles.css'],
+      css: ['@tasks/card-choosing/styles.css'],
     },
     resumptionRules: {
         enabled: true,
@@ -109,14 +109,14 @@ export const TaskRegistry = {
         sequence: 'wk0'
     },
     requirements: {
-      css: ['/tasks/card-choosing/styles.css'],
+      css: ['@tasks/card-choosing/styles.css'],
     },
     sequences: {
-      wk0: '/tasks/card-choosing/sequences/PILT-test/trial1_wk0.js',
-      wk2: '/tasks/card-choosing/sequences/PILT-test/trial1_wk2.js',
-      wk4: '/tasks/card-choosing/sequences/PILT-test/trial1_wk4.js',
-      wk24: '/tasks/card-choosing/sequences/PILT-test/trial1_wk24.js',
-      wk28: '/tasks/card-choosing/sequences/PILT-test/trial1_wk28.js',
+      wk0: '@tasks/card-choosing/sequences/PILT-test/trial1_wk0.js',
+      wk2: '@tasks/card-choosing/sequences/PILT-test/trial1_wk2.js',
+      wk4: '@tasks/card-choosing/sequences/PILT-test/trial1_wk4.js',
+      wk24: '@tasks/card-choosing/sequences/PILT-test/trial1_wk24.js',
+      wk28: '@tasks/card-choosing/sequences/PILT-test/trial1_wk28.js',
     },
     resumptionRules: {
       enabled: true
@@ -137,14 +137,14 @@ export const TaskRegistry = {
         sequence: 'wk0'
     },
     requirements: {
-      css: ['/tasks/card-choosing/styles.css'],
+      css: ['@tasks/card-choosing/styles.css'],
     },
     sequences: {
-      wk0: '/tasks/card-choosing/sequences/WM-test/trial1_wk0.js',
-      wk2: '/tasks/card-choosing/sequences/WM-test/trial1_wk2.js',
-      wk4: '/tasks/card-choosing/sequences/WM-test/trial1_wk4.js',
-      wk24: '/tasks/card-choosing/sequences/WM-test/trial1_wk24.js',
-      wk28: '/tasks/card-choosing/sequences/WM-test/trial1_wk28.js',
+      wk0: '@tasks/card-choosing/sequences/WM-test/trial1_wk0.js',
+      wk2: '@tasks/card-choosing/sequences/WM-test/trial1_wk2.js',
+      wk4: '@tasks/card-choosing/sequences/WM-test/trial1_wk4.js',
+      wk24: '@tasks/card-choosing/sequences/WM-test/trial1_wk24.js',
+      wk28: '@tasks/card-choosing/sequences/WM-test/trial1_wk28.js',
     },
     resumptionRules: {
       enabled: true
@@ -163,7 +163,7 @@ export const TaskRegistry = {
     defaultConfig: {
     },
     requirements: {
-      css: ['/tasks/piggy-banks/styles.css'],
+      css: ['@tasks/piggy-banks/styles.css'],
     },
     resumptionRules: {
       enabled: true
@@ -183,15 +183,15 @@ export const TaskRegistry = {
       session: 'wk0'
     },
     sequences: {
-        screening: '/tasks/reversal/sequences/trial1_screening.js',
-        wk0: '/tasks/reversal/sequences/trial1_wk0.js',
-        wk2: '/tasks/reversal/sequences/trial1_wk2.js',
-        wk4: '/tasks/reversal/sequences/trial1_wk4.js',
-        wk24: '/tasks/reversal/sequences/trial1_wk24.js',
-        wk28: '/tasks/reversal/sequences/trial1_wk28.js',
+        screening: '@tasks/reversal/sequences/trial1_screening.js',
+        wk0: '@tasks/reversal/sequences/trial1_wk0.js',
+        wk2: '@tasks/reversal/sequences/trial1_wk2.js',
+        wk4: '@tasks/reversal/sequences/trial1_wk4.js',
+        wk24: '@tasks/reversal/sequences/trial1_wk24.js',
+        wk28: '@tasks/reversal/sequences/trial1_wk28.js',
     },
     requirements: {
-      css: ['/tasks/reversal/styles.css'],
+      css: ['@tasks/reversal/styles.css'],
     },
     resumptionRules: {
         enabled: true
@@ -213,7 +213,7 @@ export const TaskRegistry = {
       long_response_deadline: 6000,
     },
     requirements: {
-      css: ['/tasks/delay-discounting/styles.css'],
+      css: ['@tasks/delay-discounting/styles.css'],
     },
     resumptionRules: {
         enabled: true,
@@ -235,7 +235,7 @@ export const TaskRegistry = {
       task_name: "The name of the task as it would appear in the bonus object. Default is 'vigour'."
     },
     requirements: {
-      css: ['/tasks/piggy-banks/styles.css'],
+      css: ['@tasks/piggy-banks/styles.css'],
     },
     resumptionRules: {
         enabled: true,
@@ -253,7 +253,7 @@ export const TaskRegistry = {
       task_name: "The name of the task as it would appear in the bonus object. Default is 'PIT'."
     },
     requirements: {
-      css: ['/tasks/piggy-banks/styles.css'],
+      css: ['@tasks/piggy-banks/styles.css'],
     },
     resumptionRules: {
         enabled: true,
@@ -273,7 +273,7 @@ export const TaskRegistry = {
       warning_expected_n_back: 2
     },
     requirements: {
-      css: ['/tasks/control/styles.css'],
+      css: ['@tasks/control/styles.css'],
     },
     resumptionRules: {
         enabled: true,
@@ -303,7 +303,7 @@ export const TaskRegistry = {
         minSpeed: "Minimum speed in presses per second required to pass the test. Default is 3.0, which was the 5th percentile in pilots 7 & 8."
     },
     requirements: {
-      css: ['/tasks/max-press-test/styles.css'],
+      css: ['@tasks/max-press-test/styles.css'],
     },
     resumptionRules: {
         enabled: true,
@@ -331,7 +331,7 @@ export const TaskRegistry = {
         session: "Session identifier to select the appropriate stimulus set. Default is 'wk0'.",
     },
     requirements: {
-      css: ['/tasks/pavlovian-lottery/styles.css'],
+      css: ['@tasks/pavlovian-lottery/styles.css'],
     },
     resumptionRules: {
         enabled: true,
@@ -367,7 +367,7 @@ export const TaskRegistry = {
       warning_text: "Text to display when a response is not captured before moving on. Default is `Didn't catch a response - moving on.`"
     },
     requirements: {
-      css: ['/tasks/open-text/styles.css'],
+      css: ['@tasks/open-text/styles.css'],
     },
     resumptionRules: {
         enabled: true,

@@ -1,4 +1,4 @@
-import { updateState, noChoiceWarning, canBeWarned } from '/core/utils/index.js';
+import { updateState, noChoiceWarning, canBeWarned } from '@utils/index.js';
 
 // Monetary Choice Questionnaire
 

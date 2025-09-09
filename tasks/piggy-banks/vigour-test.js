@@ -1,4 +1,4 @@
-import { saveDataREDCap, updateState, kick_out, fullscreen_prompt } from '/core/utils/index.js';
+import { saveDataREDCap, updateState, kick_out, fullscreen_prompt } from '@utils/index.js';
 
 // Trial plan for the vigour test task
 const POST_VIGOUR_PAIRS =
@@ -41,7 +41,7 @@ function generatePiggyHTML(magnitude, ratio, side) {
   const piggy_style = `filter: saturate(${50 * (400 / 50) ** ratio_factor}%) brightness(${115 * (90/115) ** ratio_factor}%);`;
 
   return `
-      <img id="piggy-bank-${side}" src="/assets/images/piggy-banks/piggy-bank.png" alt="Piggy Bank" style="${piggy_style}">
+      <img id="piggy-bank-${side}" src="./assets/images/piggy-banks/piggy-bank.png" alt="Piggy Bank" style="${piggy_style}">
   `;
 }
 
@@ -66,7 +66,7 @@ function updateDualPiggyTails(magnitude, ratio, side) {
     const spacing = tailWidth * 0; // Adjust spacing between tails
     for (let i = 0; i < magnitude_index + 1; i++) {
       const tail = document.createElement('img');
-      tail.src = '/assets/images/piggy-banks/piggy-tail2.png';
+      tail.src = './assets/images/piggy-banks/piggy-tail2.png';
       tail.alt = 'Piggy Tail';
       tail.className = 'piggy-tail';
 

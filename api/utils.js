@@ -1,4 +1,4 @@
-import { loadSequence, loadCSS } from '/core/utils/index.js';
+import { loadSequence, loadCSS } from '@utils/index.js';
 import { TaskRegistry, globalConfig, globalConfigOptions } from './task-registry.js';
 import { messages } from './messages.js';
 import { ModuleRegistry } from './module-registry.js';

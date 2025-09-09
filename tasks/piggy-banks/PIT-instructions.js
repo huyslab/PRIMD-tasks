@@ -1,4 +1,4 @@
-import { updateState} from '/core/utils/index.js';
+import { updateState} from '@utils/index.js';
 
 /**
  * Creates the main instruction pages for the PIT (Pavlovian-Instrumental Transfer) task
@@ -15,22 +15,22 @@ function PITMainInstructions(settings) {
       <p><strong>You will now play the same game again for the next few minutes. The rules remain the same:</strong></p>
 
       <ul>
-          <li><img src="/assets/images/piggy-banks/saturate-icon.png" style="height:1.3em; transform: translateY(0.2em)"> <span class="highlight-txt">Vividness</span> of piggy colors: Indicates how hard you need to shake it.</li>
-          <li><img src="/assets/images/piggy-banks/tail-icon.png" style="height:1.3em; transform: translateY(0.2em)"> <span class="highlight-txt">Tail length</span>: Longer piggy tails = more valuable coins.</li>
+          <li><img src="./assets/images/piggy-banks/saturate-icon.png" style="height:1.3em; transform: translateY(0.2em)"> <span class="highlight-txt">Vividness</span> of piggy colors: Indicates how hard you need to shake it.</li>
+          <li><img src="./assets/images/piggy-banks/tail-icon.png" style="height:1.3em; transform: translateY(0.2em)"> <span class="highlight-txt">Tail length</span>: Longer piggy tails = more valuable coins.</li>
       </ul>
 
       <p>Types of coins you can win:</p>
       <div class="instruct-coin-container">
           <div class="instruct-coin">
-              <img src="/assets/images/piggy-banks/1p-num.png" alt="1 Penny">
+              <img src="./assets/images/piggy-banks/1p-num.png" alt="1 Penny">
               <p>1 Penny</p>
           </div>
           <div class="instruct-coin">
-              <img src="/assets/images/piggy-banks/2p-num.png" alt="2 Pence">
+              <img src="./assets/images/piggy-banks/2p-num.png" alt="2 Pence">
               <p>2 Pence</p>
           </div>
           <div class="instruct-coin">
-              <img src="/assets/images/piggy-banks/5p-num.png" alt="5 Pence">
+              <img src="./assets/images/piggy-banks/5p-num.png" alt="5 Pence">
               <p>5 Pence</p>
           </div>
       </div>
@@ -38,7 +38,7 @@ function PITMainInstructions(settings) {
       `,
       `<div id="instruction-text" style="text-align: left">
         <p><strong>But this time, you'll play in a cloudy place.</strong></p>
-        <img src="/assets/images/piggy-banks/occluding_clouds.png" style="height:12em">
+        <img src="./assets/images/piggy-banks/occluding_clouds.png" style="height:12em">
         <p><span class="highlight-txt">Coins will drop and be collected as usual, but they'll be hidden behind clouds.<br>You won't see them during the game.</span></p>
         <p>We will also pay you the bonus in the same way as in the previous game at the end.</p>
       </div>`,
@@ -49,12 +49,12 @@ function PITMainInstructions(settings) {
 
             <div class="pav-stimuli-container">
                   <div class="pit-pav-row">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT1.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT2.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT3.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT4.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT5.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT6.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT1.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT2.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT3.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT4.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT5.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT6.png"} class="pit-pav-icon">
                   </div>
             </div>
       </div>
@@ -65,22 +65,22 @@ function PITMainInstructions(settings) {
 
             <div class="pav-stimuli-container">
                   <div class="pit-pav-row">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT1.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT2.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT3.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT1.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT2.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT3.png"} class="pit-pav-icon">
                         <div class="vertical"></div>
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT4.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT5.png"} class="pit-pav-icon">
-                        <img src=${"/assets/images/pavlovian-stims/" + settings.session + "/PIT6.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT4.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT5.png"} class="pit-pav-icon">
+                        <img src=${"./assets/images/pavlovian-stims/" + settings.session + "/PIT6.png"} class="pit-pav-icon">
                   </div>
                   <div class="pit-coin-row">
-                        <img src="/assets/images/card-choosing/outcomes/1pound.png" class="pit-coin-icon">
-                        <img src="/assets/images/card-choosing/outcomes/50pence.png" class="pit-coin-icon">
-                        <img src="/assets/images/card-choosing/outcomes/1penny.png" class="pit-coin-icon">
+                        <img src="./assets/images/card-choosing/outcomes/1pound.png" class="pit-coin-icon">
+                        <img src="./assets/images/card-choosing/outcomes/50pence.png" class="pit-coin-icon">
+                        <img src="./assets/images/card-choosing/outcomes/1penny.png" class="pit-coin-icon">
                         <div class="vertical"></div>
-                        <img src="/assets/images/card-choosing/outcomes/1pennybroken.png" class="pit-coin-icon">
-                        <img src="/assets/images/card-choosing/outcomes/50pencebroken.png" class="pit-coin-icon">
-                        <img src="/assets/images/card-choosing/outcomes/1poundbroken.png" class="pit-coin-icon">
+                        <img src="./assets/images/card-choosing/outcomes/1pennybroken.png" class="pit-coin-icon">
+                        <img src="./assets/images/card-choosing/outcomes/50pencebroken.png" class="pit-coin-icon">
+                        <img src="./assets/images/card-choosing/outcomes/1poundbroken.png" class="pit-coin-icon">
                   </div>
             </div>
       </div>
@@ -101,7 +101,7 @@ const startPITconfirmation = {
       <p>When you're ready, place the <strong>index finger of the hand you write with</strong> comfortably on the <span class="spacebar-icon">B</span> key, as shown below.</p>
       <p>Use only this finger to press during the game.</p>
       <p>Press it once to begin.</p>
-      <img src="/assets/images/piggy-banks/vigour_key.png" style="width:250px;" alt="Key press illustration">
+      <img src="./assets/images/piggy-banks/vigour_key.png" style="width:250px;" alt="Key press illustration">
       <p>If you want to read the rules again, press <span class="spacebar-icon">R</span>.</p>
   </div>
     `,

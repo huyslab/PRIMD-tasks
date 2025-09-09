@@ -1,5 +1,5 @@
 // Import functions 
-import { saveDataREDCap, updateBonusState, updateState, showTemporaryWarning, kick_out, fullscreen_prompt } from '/core/utils/index.js';
+import { saveDataREDCap, updateBonusState, updateState, showTemporaryWarning, kick_out, fullscreen_prompt } from '@utils/index.js';
 import { updatePiggyTails, shakePiggy } from './utils.js';
 
 // Define trial sequence - each trial specifies piggy properties and background stimulus
@@ -20,15 +20,15 @@ export const PITPreloadImages = (settings) => {
       [
         "piggy-cloud.png",
         "occluding_clouds.png"
-      ].map(s => "/assets/images/piggy-banks/" + s),
+      ].map(s => "./assets/images/piggy-banks/" + s),
       // Coin outcome images (positive and negative)
       [
         "1pound.png", "50pence.png", "1penny.png", "1pennybroken.png", "50pencebroken.png", "1poundbroken.png"
-      ].map(s => "/assets/images/card-choosing/outcomes/" + s),
+      ].map(s => "./assets/images/card-choosing/outcomes/" + s),
       // Pavlovian background stimuli (session-specific)
       [
         "PIT1.png", "PIT2.png", "PIT3.png", "PIT4.png", "PIT5.png", "PIT6.png"
-      ].map(s => "/assets/images/pavlovian-stims/" + settings.session + "/" + s)
+      ].map(s => "./assets/images/pavlovian-stims/" + settings.session + "/" + s)
     ].flat(); // Assuming vigour stimulus were already preloaded
 }
 
@@ -56,7 +56,7 @@ function generatePITstimulus(coin, ratio, settings) {
     "-0.5": "PIT5.png"
   };
   // Convert to full paths with session-specific directory
-  PIT_imgs = Object.fromEntries(Object.entries(PIT_imgs).map(([k, v]) => [k, "/assets/images/pavlovian-stims/" + settings.session + "/" + v]));
+  PIT_imgs = Object.fromEntries(Object.entries(PIT_imgs).map(([k, v]) => [k, "./assets/images/pavlovian-stims/" + settings.session + "/" + v]));
   PIT_imgs["0"] = ""; // No background for neutral trials
   
   const piggyBgImg = PIT_imgs[coin];
@@ -65,15 +65,15 @@ function generatePITstimulus(coin, ratio, settings) {
       <!-- Middle Row (Piggy Bank & Coins) -->
       <div id="experiment-container">
         <div id="bg-container">
-          <img id="piggy-bg-1" src="/assets/images/piggy-banks/piggy-cloud.png" alt="Piggy background" style="transform: translate(0vw, -4vh); position: absolute; height: 120%; width: auto; ${cloud_style}">
-          <img id="piggy-bg-2" src="/assets/images/piggy-banks/piggy-cloud.png" alt="Piggy background" style="transform: translate(0vw, -4vh); position: absolute; height: 120%; width: auto;">
+          <img id="piggy-bg-1" src="./assets/images/piggy-banks/piggy-cloud.png" alt="Piggy background" style="transform: translate(0vw, -4vh); position: absolute; height: 120%; width: auto; ${cloud_style}">
+          <img id="piggy-bg-2" src="./assets/images/piggy-banks/piggy-cloud.png" alt="Piggy background" style="transform: translate(0vw, -4vh); position: absolute; height: 120%; width: auto;">
         </div>
         <div id="piggy-container">
           <!-- Piggy Bank Image -->
-          <img id="piggy-bank" src="/assets/images/piggy-banks/piggy-bank.png" alt="Piggy Bank" style="${piggy_style}">
+          <img id="piggy-bank" src="./assets/images/piggy-banks/piggy-bank.png" alt="Piggy Bank" style="${piggy_style}">
         </div>
         <div id="obstructor-container">
-          <img id="obstructor" src="/assets/images/piggy-banks/occluding_clouds.png" alt="Obstructor">
+          <img id="obstructor" src="./assets/images/piggy-banks/occluding_clouds.png" alt="Obstructor">
         </div>
       </div>
     </div>

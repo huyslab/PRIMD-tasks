@@ -1,4 +1,4 @@
-import { updateState } from '/core/utils/index.js';
+import { updateState } from '@utils/index.js';
 
 // Function to get each key press RT
 function getDifferences(array) {
@@ -122,7 +122,7 @@ const maxPressInstructions = {
         <div id="instruction-text" style="text-align: center;">
             <p>Before we start the first game, we need to complete a short test of your keyboard.</p>
             <p>On the next screen, you will need to <span class="highlight-txt">press the <span class="spacebar-icon">J</span> key repeatedly as fast as you can</span>, as shown below.</p>
-            <img src="/assets/images/max_press_key.gif" alt="Max Press Key Example" style="width:250px;">
+            <img src="./assets/images/max_press_key.gif" alt="Max Press Key Example" style="width:250px;">
         </div>
     </div>
     `,

@@ -8,7 +8,7 @@
 
 import { User, question_trial, timeWord } from "./utils.js"
 import { openTextInstructions } from "./instructions.js"
-import { saveDataREDCap } from "/core/utils/index.js"
+import { saveDataREDCap } from "@utils/index.js"
 
 /**
  * RELMED open-ended questions array

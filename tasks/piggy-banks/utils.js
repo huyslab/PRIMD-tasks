@@ -57,7 +57,7 @@ function updatePiggyTails(magnitude, ratio, settings) {
     // Create one tail for each magnitude level (magnitude_index + 1 tails total)
     for (let i = 0; i < magnitude_index + 1; i++) {
       const tail = document.createElement('img');
-      tail.src = '/assets/images/piggy-banks/piggy-tail2.png';
+      tail.src = './assets/images/piggy-banks/piggy-tail2.png';
       tail.alt = 'Piggy Tail';
       tail.className = 'piggy-tail';
 

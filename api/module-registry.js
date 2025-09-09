@@ -28,6 +28,7 @@ export const ModuleRegistry = {
             { type: "task", name: "post_WM_test"},
             { type: "task", name: "acceptability_judgment", config: { task_name: "wm", game_description: "one-card game you just completed" } },
             { type: "task", name: "open_text" },
+            { type: "task", name: "delay_discounting" },
             { type: "instructions", config: { text: "end_message" } }
         ]
     },

@@ -106,79 +106,49 @@ function saveDataREDCap(retry = 1, extra_fields = {}, callback = () => {}) {
 
     console.log("Data to be sent:", data_message);
 
-    if (window.context === "relmed") {
-        // Check if we're in a development environment
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.log("Development mode: skipping data save to parent");
-            callback();
-            return;
+    // Prepare REDCap record 
+    var redcap_record = JSON.stringify([{
+        record_id: window.participantID + "_" + window.module_start_time,
+        participant_id: window.participantID,
+        sitting_start_time: window.module_start_time,
+        session: window.session,
+        module: window.task,
+        data: combined_data
+    }])
+
+    // Submit data via AWS Lambda endpoint 
+    fetch('https://1aw5e65i79.execute-api.eu-north-1.amazonaws.com/prod/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: redcap_record
+    })
+    .then(data => {
+        if (data.status === 200) {
+            console.log('Data successfully submitted to REDCap');
+        } else {
+            console.error('Error submitting data:', data.message);
         }
-
-        postToParent(
-            data_message,
-            () => {
-                if (retry > 0) {
-                    console.warn(`Failed to save data, retrying... (${retry} attempts left)`);
-                    // Exponential backoff: 1s, 2s, 4s, etc.
-                    const delay = Math.pow(2, (3 - retry)) * 1000;
-                    setTimeout(function () {
-                        saveDataREDCap(retry - 1);
-                    }, delay);
-                } else {
-                    console.error('Failed to submit data after retrying.');
-                }
-                
-            }
-        );
-
-        callback();
-
-    } else if (window.context === "prolific") {
-
-        // Prepare REDCap record for Prolific context
-        var redcap_record = JSON.stringify([{
-            record_id: window.participantID + "_" + window.module_start_time,
-            participant_id: window.participantID,
-            sitting_start_time: window.module_start_time,
-            session: window.session,
-            module: window.task,
-            data: combined_data
-        }])
-    
-        // Submit data via AWS Lambda endpoint for Prolific studies
-        fetch('https://h6pgstm0f9.execute-api.eu-north-1.amazonaws.com/prod/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: redcap_record
-        })
-        .then(data => {
-            if (data.status === 200) {
-                console.log('Data successfully submitted to REDCap');
-            } else {
-                console.error('Error submitting data:', data.message);
-            }
-            return data.json()
-        })
-        .then(data => {
-            console.log(data)
-            callback(); // Call the callback function if submission is successful
-        }
-        )
-        .catch(error => {
-            console.error('Error:', error);
-            if (retry > 0) {
-                console.log('Retrying to submit data...');
-                setTimeout(function(){
-                    saveDataREDCap(retry - 1);
-                }, 1000);
-            } else {
-                console.error('Failed to submit data after retrying.');
-                callback(error); // Call the callback function with the error if retries are exhausted
-            }
-        });
+        return data.json()
+    })
+    .then(data => {
+        console.log(data)
+        callback(); // Call the callback function if submission is successful
     }
+    )
+    .catch(error => {
+        console.error('Error:', error);
+        if (retry > 0) {
+            console.log('Retrying to submit data...');
+            setTimeout(function(){
+                saveDataREDCap(retry - 1);
+            }, 1000);
+        } else {
+            console.error('Failed to submit data after retrying.');
+            callback(error); // Call the callback function with the error if retries are exhausted
+        }
+    });
 
 }
 

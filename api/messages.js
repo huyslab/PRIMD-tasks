@@ -49,6 +49,11 @@ export const messages = {
             message: `<p>Thank you for completing this session!</p>
                 <p>Please call the experimenter.</p>`,
             on_start: endExperiment
+        },
+        break_message: {
+            message: `<p>You can now take a short break.</p><p>Please ring the bell when you are ready to continue.</p>`,
+            key_forward: 'c',
+            show_clickable_nav: false
         }
     },
     screening: {

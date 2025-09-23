@@ -70,6 +70,29 @@ function updateState(state, save_data = true) {
 }
 
 /**
+ * Formats a date string into a standardized YYYY-MM-DD_HH:MM:SS format.
+ * @param {string} s - The date string to format
+ * @returns {string} Formatted date string in YYYY-MM-DD_HH:MM:SS format
+ */
+function format_date_from_string(s){
+    const dateTime = new Date(s);
+
+    // Get individual components
+    const year = dateTime.getFullYear();
+    const month = String(dateTime.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+    const day = String(dateTime.getDate()).padStart(2, '0');
+    const hours = String(dateTime.getHours()).padStart(2, '0');
+    const minutes = String(dateTime.getMinutes()).padStart(2, '0');
+    const seconds = String(dateTime.getSeconds()).padStart(2, '0');
+
+    // Format the date and time
+    const formattedDate = `${year}-${month}-${day}`;
+    const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+    return formattedDate + "_" + formattedTime
+}
+
+/**
  * Saves experimental data to REDCap database with retry mechanism
  * Handles both RELMED and Prolific data submission contexts
  * @param {number} retry - Number of retry attempts remaining (default: 1)
@@ -92,11 +115,14 @@ function saveDataREDCap(retry = 1, extra_fields = {}, callback = () => {}) {
         }
     ]);
 
+    const sitting_start_time = format_date_from_string(jsPsych.getStartTime());
+    const record_id = window.participantID + "_" + sitting_start_time;
+
     const data_message = {
         data: {
-            record_id: window.participantID + "_" + window.module_start_time,
+            record_id: record_id,
             participant_id: window.participantID,
-            sitting_start_time: window.module_start_time,
+            sitting_start_time: sitting_start_time,
             session: window.session,
             module: window.task,
             data: combined_data 
@@ -108,9 +134,9 @@ function saveDataREDCap(retry = 1, extra_fields = {}, callback = () => {}) {
 
     // Prepare REDCap record 
     var redcap_record = JSON.stringify([{
-        record_id: window.participantID + "_" + window.module_start_time,
+        record_id: record_id,
         participant_id: window.participantID,
-        sitting_start_time: window.module_start_time,
+        sitting_start_time: sitting_start_time,
         session: window.session,
         module: window.task,
         data: combined_data
@@ -168,6 +194,11 @@ function endExperiment() {
     saveDataREDCap(10, {
         message: "endTask"
     });
+
+    const sitting_start_time = format_date_from_string(jsPsych.getStartTime());
+    const record_id = window.participantID + "_" + sitting_start_time;
+
+    jsPsych.data.get().localSave('csv', `${record_id}.csv`);
 }
 
 // Export functions for use in other modules

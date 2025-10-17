@@ -7,7 +7,7 @@ import {
   PREDICT_SEQUENCE_SCREENING 
 } from "./configuration.js"
 
-import { createPreloadTrial, kick_out, fullscreen_prompt, noChoiceWarning, updateState, saveDataREDCap, canBeWarned, updateBonusState } from "@utils/index.js"
+import { createPreloadTrial, kickOut, fullscreen_prompt, noChoiceWarning, updateState, saveDataREDCap, canBeWarned, updateBonusState } from "@utils/index.js"
 
 /**
  * Creates preload trial for control task assets
@@ -125,7 +125,7 @@ export function createCoreControlTimeline(settings) {
     : EXPLORE_SEQUENCE).forEach(t => {
     controlExploreTimeline.push({
       timeline: [
-        kick_out,
+        kickOut(settings),
         fullscreen_prompt,
         {
           type: jsPsychExploreShip,
@@ -219,7 +219,7 @@ export function createCoreControlTimeline(settings) {
     : PREDICT_SEQUENCE).forEach(t => {
     controlPredTimeline.push({
       timeline: [
-        kick_out,
+        kickOut(settings),
         fullscreen_prompt,
         {
           type: jsPsychPredictHomeBase,
@@ -278,7 +278,7 @@ export function createCoreControlTimeline(settings) {
   const controlRewardTimeline = [];
   REWARD_SEQUENCE.forEach((t, index) => {
     const timelineItems = [
-      kick_out,
+      kickOut(settings),
       fullscreen_prompt
     ];
     

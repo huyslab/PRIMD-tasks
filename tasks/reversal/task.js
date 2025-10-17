@@ -11,7 +11,7 @@
 import { 
     createPreloadTrial, 
     createPressBothTrial, 
-    kick_out, 
+    kickOut, 
     fullscreen_prompt, 
     canBeWarned, 
     updateState, 
@@ -68,7 +68,7 @@ function generateReversalBlocks(settings) {
                 timeline: [
                     {
                         timeline: [
-                            kick_out, // Check if participant should be excluded
+                            kickOut(settings), // Check if participant should be excluded
                             fullscreen_prompt, // Ensure fullscreen mode
                             {
                                 type: jsPsychReversal, // Custom reversal task plugin
@@ -85,6 +85,11 @@ function generateReversalBlocks(settings) {
                                 },
                                 show_warning: () => {
                                     return canBeWarned(settings)
+                                },
+                                data: {
+                                    block: jsPsych.timelineVariable('block'),
+                                    trial: jsPsych.timelineVariable('trial'),
+                                    trialphase: "reversal"
                                 },
                                 on_finish: (data) => {
                                     // Extract trial and block numbers for state tracking
@@ -146,11 +151,6 @@ function generateReversalBlocks(settings) {
                 }
                 ],
                 timeline_variables: reversal_timeline[i], // Trial parameters for this block
-                data: {
-                    block: jsPsych.timelineVariable('block'),
-                    trial: jsPsych.timelineVariable('trial'),
-                    trialphase: "reversal"
-                }
             }
         ]);
     }

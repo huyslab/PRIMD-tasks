@@ -1,4 +1,4 @@
-import { saveDataREDCap, updateState, kick_out, fullscreen_prompt } from '@utils/index.js';
+import { saveDataREDCap, updateState, kickOut, fullscreen_prompt } from '@utils/index.js';
 
 // Trial plan for the vigour test task
 const POST_VIGOUR_PAIRS =
@@ -148,11 +148,11 @@ const postVigourInstructions = {
   }
 };
 
-export function createVigourTestTimeline() {
+export function createVigourTestTimeline(settings) {
   const postVigourTrials = [];
   POST_VIGOUR_PAIRS.forEach(pair => {
     postVigourTrials.push({
-      timeline: [kick_out, fullscreen_prompt, postVigourTrial],
+      timeline: [kickOut(settings), fullscreen_prompt, postVigourTrial],
       timeline_variables: [{ pair: pair }]
     });
   });

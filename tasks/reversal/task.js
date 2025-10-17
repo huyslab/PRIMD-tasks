@@ -86,6 +86,11 @@ function generateReversalBlocks(settings) {
                                 show_warning: () => {
                                     return canBeWarned(settings)
                                 },
+                                data: {
+                                    block: jsPsych.timelineVariable('block'),
+                                    trial: jsPsych.timelineVariable('trial'),
+                                    trialphase: "reversal"
+                                },
                                 on_finish: (data) => {
                                     // Extract trial and block numbers for state tracking
                                     const trial_number = jsPsych.data.get().last(1).select('trial').values[0];
@@ -146,11 +151,6 @@ function generateReversalBlocks(settings) {
                 }
                 ],
                 timeline_variables: reversal_timeline[i], // Trial parameters for this block
-                data: {
-                    block: jsPsych.timelineVariable('block'),
-                    trial: jsPsych.timelineVariable('trial'),
-                    trialphase: "reversal"
-                }
             }
         ]);
     }

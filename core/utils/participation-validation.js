@@ -1,3 +1,5 @@
+import { saveDataREDCap } from './data-handling.js';
+
 /**
  * Participation validation and warning system utilities
  * Manages participant compliance, attention checks, and warning mechanisms
@@ -114,7 +116,7 @@ function preKickOutWarning(settings) {
                 `,
                 on_start: function(trial) {
                     // Save data
-                    saveDataREDCap(retry = 3);
+                    saveDataREDCap(3);
             }
             }
         ],
@@ -133,11 +135,17 @@ function kickOutWarning(settings)  {
         type: jsPsychHtmlKeyboardResponse,
         conditional_function: function() {
             const n_warnings = jsPsych.data.get().last(1).select('n_warnings').values[0];
-            const warned = jsPsych.data.get().select('trialphase').values.includes("speed-accuracy");
+            const warned = jsPsych.data.get().last(1).select('kick_out_warned').values[0] || false;
             if ((n_warnings == settings.finalWarning) && (!warned)) {
-            return true;
+                jsPsych.data.addProperties(
+                    {
+                        kick_out_warned: true
+                    }
+                );
+
+                return true;
             } else {
-            return false;
+                return false;
             }
         },
         css_classes: ['instructions'],
@@ -195,7 +203,7 @@ const createInstructionsKickOut = (task) => {
                     trial_duration: 200,
                     on_finish: function (data) {
                         // Save data
-                        saveDataREDCap(retry = 3);
+                        saveDataREDCap(3);
                         // Allow refresh
                         window.removeEventListener('beforeunload', preventRefresh);
                     }

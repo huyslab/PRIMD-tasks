@@ -11,7 +11,7 @@
 import { 
     createPreloadTrial, 
     createPressBothTrial, 
-    kick_out, 
+    kickOut, 
     fullscreen_prompt, 
     canBeWarned, 
     updateState, 
@@ -68,7 +68,7 @@ function generateReversalBlocks(settings) {
                 timeline: [
                     {
                         timeline: [
-                            kick_out, // Check if participant should be excluded
+                            kickOut(settings), // Check if participant should be excluded
                             fullscreen_prompt, // Ensure fullscreen mode
                             {
                                 type: jsPsychReversal, // Custom reversal task plugin

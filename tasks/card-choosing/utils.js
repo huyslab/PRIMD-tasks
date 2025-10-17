@@ -3,7 +3,7 @@ import {
   updateBonusState,
   canBeWarned,
   noChoiceWarning,
-  kick_out,
+  kickOut,
   fullscreen_prompt,
   createPressBothTrial,
   updateState,
@@ -141,7 +141,7 @@ const interBlockMsg = (settings) => {
 const testTrial = (settings) => {
     return {
         timeline: [
-            kick_out,
+            kickOut(settings),
             fullscreen_prompt,
             // Main test trial - no feedback given
             {
@@ -261,7 +261,7 @@ const testTrial = (settings) => {
 const cardChoosingTrial = (settings) => {
     return {
         timeline: [
-            kick_out,
+            kickOut(settings),
             fullscreen_prompt,
         {
             type: jsPsychCardChoosing,

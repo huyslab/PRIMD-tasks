@@ -152,7 +152,7 @@ var jsPsychReversal = (function (jspsych) {
             // ITI blur
             var ITI = () => {
                 // Remove keyboard listener
-                this.jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
+                this.jsPsych.pluginAPI.cancelAllKeyboardResponses();
 
 
                 const bg = document.getElementById(`rev-squirrel-bg`);

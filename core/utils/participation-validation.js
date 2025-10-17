@@ -1,3 +1,5 @@
+import { saveDataREDCap } from './data-handling.js';
+
 /**
  * Participation validation and warning system utilities
  * Manages participant compliance, attention checks, and warning mechanisms
@@ -87,59 +89,64 @@ const fullscreen_prompt = {
  * Warns participants who are receiving too many response time warnings
  */
 
-const pre_kick_out_warning = {
-    type: jsPsychHtmlKeyboardResponse,
-    conditional_function: function() {
-      if ((jsPsych.data.get().last(1).select('n_warnings').values[0] >= window.interimWarning) &&
-      !jsPsych.data.get().last(1).select('pre_kick_out_warned').values[0]
-    ) {
-        jsPsych.data.addProperties(
+function preKickOutWarning(settings) {
+    return {
+        type: jsPsychHtmlKeyboardResponse,
+        conditional_function: function() {
+        if ((jsPsych.data.get().last(1).select('n_warnings').values[0] >= settings.interimWarning) &&
+        !jsPsych.data.get().last(1).select('pre_kick_out_warned').values[0]
+        ) {
+            jsPsych.data.addProperties(
+                {
+                    pre_kick_out_warned: true
+                }
+            );
+            return true;
+        } else {
+            return false;
+        }
+        },
+        css_classes: ['instructions'],
+        timeline: [
             {
-                pre_kick_out_warned: true
+                stimulus: `<p>You seem to be taking too long to respond on the tasks.</p>
+                    <p>Please try to respond more quickly. Also, please keep your attention on the task window, and don't use other tabs or windows.</p>
+                    <p>If you continue to receive too many warnings, we will have to stop your particpation in this experiment</p>
+                    <p>Place your fingers back on the keyboard, and press one of the keys your were using for this task to continue.</p>
+                `,
+                on_start: function(trial) {
+                    // Save data
+                    saveDataREDCap(3);
             }
-        );
-        return true;
-      } else {
-        return false;
-      }
-    },
-    css_classes: ['instructions'],
-    timeline: [
-        {
-            stimulus: `<p>You seem to be taking too long to respond on the tasks.</p>
-                <p>Please try to respond more quickly. Also, please keep your attention on the task window, and don't use other tabs or windows.</p>
-                <p>If you continue to receive too many warnings, we will have to stop your particpation in this experiment</p>
-                <p>Place your fingers back on the keyboard, and press one of the keys your were using for this task to continue.</p>
-            `,
-            on_start: function(trial) {
-                // Save data
-                saveDataREDCap(retry = 3);
+            }
+        ],
+        choices: ["arrowright", "arrowleft", "arrowup", "b"],
+        data: {
+        trialphase: 'pre-kick-out-warning'
         }
-        }
-    ],
-    choices: ["arrowright", "arrowleft", "arrowup", "b"],
-    data: {
-      trialphase: 'pre-kick-out-warning'
     }
 }
-
 /**
  * Context-specific kick-out warning configuration
  * Different behavior for RELMED vs Prolific participants
  */
-let kick_out_warning = {}
-if (window.context == "relmed") {
-    console.log("Relmed context detected");
-    kick_out_warning = {
+function kickOutWarning(settings)  {
+    return {
         type: jsPsychHtmlKeyboardResponse,
         conditional_function: function() {
             const n_warnings = jsPsych.data.get().last(1).select('n_warnings').values[0];
-            const warned = jsPsych.data.get().select('trialphase').values.includes("speed-accuracy");
-          if ((n_warnings == window.maxWarnings) && (!warned)) {
-            return true;
-          } else {
-            return false;
-          }
+            const warned = jsPsych.data.get().last(1).select('kick_out_warned').values[0] || false;
+            if ((n_warnings == settings.finalWarning) && (!warned)) {
+                jsPsych.data.addProperties(
+                    {
+                        kick_out_warned: true
+                    }
+                );
+
+                return true;
+            } else {
+                return false;
+            }
         },
         css_classes: ['instructions'],
         timeline: [
@@ -152,60 +159,21 @@ if (window.context == "relmed") {
         ],
         choices: ["arrowright", "arrowleft"],
         data: {
-          trialphase: 'speed-accuracy'
+            trialphase: 'speed-accuracy'
         }
-    }    
-} else {
-    console.log("Prolific context detected");
-    console.log(window.context)
-
-    kick_out_warning = {
-        type: jsPsychHtmlKeyboardResponse,
-        conditional_function: function() {
-          if (jsPsych.data.get().last(1).select('n_warnings').values[0] >= window.maxWarnings) {
-            return true;
-          } else {
-            return false;
-          }
-        },
-        css_classes: ['instructions'],
-        timeline: [
-            {   
-                stimulus: '...',
-                trial_duration: 200,
-                on_finish: function(data) {
-                    // Save data
-                    saveDataREDCap(retry = 3);
-                    // Allow refresh
-                    window.removeEventListener('beforeunload', preventRefresh);
-                }
-            },
-            {
-            stimulus: `<p>You may not be following the study instructions as intended, as you didn't respond more than 15 times.</p>
-                <p>Unfortunately, you cannot continue with this study.</p>
-                <p>If you believe this is a mistake, please email haoyang.lu@ucl.ac.uk, explaining the circumstances.</p>
-                <p>Please return this study on <a href="https://app.prolific.com/">Prolific</a>.</p>
-                <p>You may now close this tab.</p>
-            `
-            }
-        ],
-        choices: ["NO_KEYS"],
-        data: {
-          trialphase: 'kick-out'
-        }
-    }
-    
+    };
 }
-
 /**
  * Combined kick-out trial timeline
  * Includes both pre-warning and final kick-out stages
  */
-const kick_out = {
-    timeline: [
-        pre_kick_out_warning,
-        kick_out_warning
-    ]
+function kickOut(settings) {
+        return {
+        timeline: [
+            preKickOutWarning(settings),
+            kickOutWarning(settings)
+        ]
+    };
 }
 
 /**
@@ -235,7 +203,7 @@ const createInstructionsKickOut = (task) => {
                     trial_duration: 200,
                     on_finish: function (data) {
                         // Save data
-                        saveDataREDCap(retry = 3);
+                        saveDataREDCap(3);
                         // Allow refresh
                         window.removeEventListener('beforeunload', preventRefresh);
                     }
@@ -501,9 +469,7 @@ function createPressBothTrial(stimulus, trialphase){
 export {
     preventRefresh,
     fullscreen_prompt,
-    pre_kick_out_warning,
-    kick_out_warning,
-    kick_out,
+    kickOut,
     createInstructionsKickOut,
     checkFullscreen,
     canBeWarned,

@@ -54,7 +54,11 @@ export function createCardChoosingTimeline(settings) {
 
   // Apply resumption rules if enabled
   const lastState = getResumptionState();
+<<<<<<< HEAD
   if (settings.__task.resumptionRules?.enabled) {
+=======
+  if (settings.__task?.resumptionRules?.enabled) {
+>>>>>>> upstream/main
       structure = applyWithinTaskResumptionRules(
           structure, 
           lastState, 

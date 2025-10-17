@@ -3,7 +3,7 @@ var jsPsychReversal = (function (jspsych) {
 
     const info = {
         name: "reversal",
-        version: "0.1.1", 
+        version: "0.1.2", 
         parameters: {
             /** Value of left-hand side feedback */
             feedback_left: {
@@ -151,6 +151,10 @@ var jsPsychReversal = (function (jspsych) {
 
             // ITI blur
             var ITI = () => {
+                // Remove keyboard listener
+                this.jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
+
+
                 const bg = document.getElementById(`rev-squirrel-bg`);
 
                 const fg = document.getElementById(`rev-squirrel-fg`);

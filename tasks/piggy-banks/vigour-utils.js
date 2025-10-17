@@ -1,5 +1,5 @@
 // Import functions 
-import { postToParent, saveDataREDCap, updateBonusState, updateState, showTemporaryWarning, kick_out, fullscreen_prompt } from '@utils/index.js';
+import { postToParent, saveDataREDCap, updateBonusState, updateState, showTemporaryWarning, kickOut, fullscreen_prompt } from '@utils/index.js';
 import { shakePiggy, updatePiggyTails} from "./utils.js";
 
 // Trial sequence for vigour task - each trial specifies piggy properties and duration
@@ -314,7 +314,7 @@ function createVigourCoreTimeline(settings) {
     // Create a timeline for each trial with kick-out and fullscreen checks
     VIGOUR_TRIALS.forEach(trial => {
         experimentTimeline.push({
-            timeline: [kick_out, fullscreen_prompt, piggyBankTrial(settings)], 
+            timeline: [kickOut(settings), fullscreen_prompt, piggyBankTrial(settings)], 
             timeline_variables: [trial]
         });
     });

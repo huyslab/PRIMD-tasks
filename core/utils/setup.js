@@ -180,6 +180,10 @@ const enterExperiment = {
         // Save all URL parameters to jsPsych data for experiment tracking
         saveUrlParameters();
 
+        jsPsych.data.addProperties({
+            n_warnings: 0
+        })
+
         // Prevent participant from terminating experiment unless in debug mode
         if (!(window.participantID && window.participantID.includes("debug"))) {
             preventParticipantTermination();

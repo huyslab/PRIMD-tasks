@@ -1,5 +1,5 @@
 // Import functions 
-import { saveDataREDCap, updateBonusState, updateState, showTemporaryWarning, kick_out, fullscreen_prompt } from '@utils/index.js';
+import { saveDataREDCap, updateBonusState, updateState, showTemporaryWarning, kickOut, fullscreen_prompt } from '@utils/index.js';
 import { updatePiggyTails, shakePiggy } from './utils.js';
 
 // Define trial sequence - each trial specifies piggy properties and background stimulus
@@ -231,7 +231,7 @@ export function createPITCoreTimeline(settings) {
   // Create a timeline for each trial with kick-out and fullscreen checks
   PIT_TRIAL_LIST.forEach(trial => {
     PITtrials.push({
-      timeline: [kick_out, fullscreen_prompt, PITTrial(settings)],
+      timeline: [kickOut(settings), fullscreen_prompt, PITTrial(settings)],
       timeline_variables: [trial]
     });
   });

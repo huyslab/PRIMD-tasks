@@ -195,7 +195,7 @@ var jsPsychRewardShip = (function (jspsych) {
       // Function to create and animate fuel icons
       const createFuelIcon = (container) => {
         const fuelIcon = document.createElement('img');
-        fuelIcon.src = '${trial.general_image_path}/fuel.png';
+        fuelIcon.src = `${trial.general_image_path}/fuel.png`;
         fuelIcon.className = 'fuel-icon fuel-animation';
         container.appendChild(fuelIcon);
 

@@ -95,23 +95,21 @@ function computeTotalBonus(module) {
         };
 =======
     // Iterate over module elements
-    if (module.elements && Array.isArray(module.elements)) {
-        for (const element of module.elements) {
-            // Check if element is a task
-            if (element.type === "task") {
-                // Get the task object
-                const task = element.__task;
+    for (const element of module.elements) {
+        // Check if element is a task
+        if (element.type === "task") {
+            // Get the task object
+            const task = element.__task;
+            
+            // Call the computeBonus function if it exists
+            if (task.computeBonus && typeof task.computeBonus === 'function') {
+                const bonusResult = task.computeBonus();
                 
-                // Call the computeBonus function if it exists and task is defined
-                if (task && task.computeBonus && typeof task.computeBonus === 'function') {
-                    const bonusResult = task.computeBonus();
-                    
-                    // Handle the result (could be 0, object, or array)
-                    if (bonusResult && typeof bonusResult === 'object') {
-                        totalEarned += bonusResult.earned || 0;
-                        totalMin += bonusResult.min || 0;
-                        totalMax += bonusResult.max || 0;
-                    }
+                // Handle the result (could be 0, object, or array)
+                if (bonusResult && typeof bonusResult === 'object') {
+                    totalEarned += bonusResult.earned || 0;
+                    totalMin += bonusResult.min || 0;
+                    totalMax += bonusResult.max || 0;
                 }
             }
         }

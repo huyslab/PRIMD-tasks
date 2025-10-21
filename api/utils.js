@@ -1,4 +1,4 @@
-import { loadSequence, loadCSS } from '@utils/index.js';
+import { loadSequence, loadCSS, bonusTrial } from '@utils/index.js';
 import { TaskRegistry, globalConfig, globalConfigOptions } from './task-registry.js';
 import { messages } from './messages.js';
 import { ModuleRegistry } from './module-registry.js';
@@ -214,6 +214,13 @@ export async function createModuleTimeline(moduleName, config) {
     // Get module
     const module = getModule(moduleName);
 
+    // Pre-fetch task objects and attach to task elements
+    module.elements.forEach(element => {
+        if (element.type === "task") {
+            element.__task = getTask(element.name);
+        }
+    });
+
     // Create timeline for each element in the module
     const timelines = module.elements.map(element => {
         if (element.type === "task") {
@@ -221,6 +228,9 @@ export async function createModuleTimeline(moduleName, config) {
         }
         if (element.type === "instructions") {
             return getMessage(moduleName, element.config.text, { ...module.moduleConfig, ...element.config, ...config });
+        }
+        if (element.type === "bonus") {
+            return bonusTrial(module);
         }
         return null;
     });

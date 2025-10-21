@@ -3,7 +3,7 @@
  * Handles bonus computation and payment tracking across different experimental modules
  */
 
-import { postToParent } from "./data-handling.js";
+import { postToParent, updateState } from "./data-handling.js";
 
 /**
  * Retrieves task-specific bonus data based on the task type

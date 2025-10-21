@@ -101,7 +101,6 @@ function computeTotalBonus(module) {
             if (element.type === "task") {
                 // Get the task object
                 const task = element.__task;
-                console.log(element)
                 
                 // Call the computeBonus function if it exists
                 if (task.computeBonus && typeof task.computeBonus === 'function') {

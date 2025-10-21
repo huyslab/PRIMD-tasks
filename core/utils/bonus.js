@@ -102,8 +102,8 @@ function computeTotalBonus(module) {
                 // Get the task object
                 const task = element.__task;
                 
-                // Call the computeBonus function if it exists
-                if (task.computeBonus && typeof task.computeBonus === 'function') {
+                // Call the computeBonus function if it exists and task is defined
+                if (task && task.computeBonus && typeof task.computeBonus === 'function') {
                     const bonusResult = task.computeBonus();
                     
                     // Handle the result (could be 0, object, or array)

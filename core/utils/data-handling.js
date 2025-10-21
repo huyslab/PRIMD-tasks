@@ -98,7 +98,7 @@ function saveDataREDCap(retry = 1, extra_fields = {}, callback = () => {}) {
             participant_id: window.participantID,
             sitting_start_time: window.module_start_time,
             session: window.session,
-            module: window.task,
+            module: window.module,
             data: combined_data 
         },
         ...extra_fields

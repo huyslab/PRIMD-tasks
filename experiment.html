@@ -91,10 +91,12 @@
         });
 
         // Configurations
-        const session = new URLSearchParams(window.location.search).get('session') || 'wk0';
+        window.session = new URLSearchParams(window.location.search).get('session') || 'wk0';
+        window.module = new URLSearchParams(window.location.search).get('module') ;
+
         const settings = {
-            sequence: session,
-            session: session
+            sequence: window.session,
+            session: window.session
         };
 
         // Function to run the experiment
